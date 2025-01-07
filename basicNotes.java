@@ -6,49 +6,36 @@ public class basicNotes {
 
         //welcome prompts
         System.out.println("Welcome to Basic Notes!");
-        //initialize a 2 row and 5 column array
-        String[][] notes = new String[5][2];    //2 rows and 5 columns
+        //user input for the number of notes
+        System.out.print("How many items would you like to enter?: ");
+        int rowItems = sc.nextInt();
+
+        //error occurs without this, consumes the next line
+        //without this the program will skip the first input
+        sc.nextLine();
+
+        //initialize dynamic rows
+        String[][] notes = new String[rowItems][2];
         //prompt user to enter their notes
         System.out.println("Please enter your notes below.");
 
-        //manual initialization of the array
-        //quite inefficient, but it's just for demonstration purposes ;)
-        
-        //note 1
-        System.out.print("Enter Title 1: ");
-        notes[0][0] = sc.nextLine();
-        System.out.print("Enter note 1: ");
-        notes[0][1] = sc.nextLine();
-        //note 2
-        System.out.print("Enter Title 2: ");
-        notes[1][0] = sc.nextLine();
-        System.out.print("Enter note 2: ");
-        notes[1][1] = sc.nextLine();
-        //note 3
-        System.out.print("Enter Title 3: ");
-        notes[2][0] = sc.nextLine();
-        System.out.print("Enter note 3: ");
-        notes[2][1] = sc.nextLine();
-        //note 4
-        System.out.print("Enter Title 4: ");
-        notes[3][0] = sc.nextLine();
-        System.out.print("Enter note 4: ");
-        notes[3][1] = sc.nextLine();
-        //note 5
-        System.out.print("Enter Title 5: ");
-        notes[4][0] = sc.nextLine();
-        System.out.print("Enter note 5: ");
-        notes[4][1] = sc.nextLine();
+        //loop array initialization
+        for (int i = 0; i < notes.length; i++){
+            for (int j = 0; j < notes[i].length; j++){
+                System.out.println("Enter note " + (i + 1) + ": ");
+                notes[i][j] = sc.nextLine();
+            }
+        }
 
         //loop through the array and print the notes
         System.out.println("-----------------------------------");
         System.out.println("HERE ARE THE NOTES YOU'VE ENTERED");
         System.out.println("-----------------------------------");
 
-        for (int i = 0; i < notes.length; i++) {
+        for (int row = 0; row < notes.length; row++) {
             System.out.println();
-            for (int j = 0; j < notes[i].length; j++) {
-                System.out.println(notes[i][j] + " ");
+            for (int colu = 0; colu < notes[row].length; colu++) {
+                System.out.println(notes[row][colu] + " ");
             }
         }
     }
